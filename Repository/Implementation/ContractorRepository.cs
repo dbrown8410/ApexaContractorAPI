@@ -63,7 +63,7 @@ namespace ApexaContractorAPI.Repository.Implementation
                         names.Add(itm.ContractorTwoId);
                     }
 
-                    result.Chain = ContractorChain(names);
+                    result.Chain = ShortestPath(names);
 
                     return result;
                 }
@@ -82,12 +82,9 @@ namespace ApexaContractorAPI.Repository.Implementation
                         //child id
                         rows = Context.Contracts.Where(x => x.ContractorOneId == row.ContractorTwoId).ToList();
                         if(rows.Count > 0)
-                        {
-                            if (rows[0].ContractorTwoId != contractorOneId)
-                            {
-                                orignHashSet.Add(rows[0].ContractorTwoId);
-                                elementCount += 2;
-                            }
+                        {                            
+                            orignHashSet.Add(rows[0].ContractorTwoId);
+                            elementCount ++;
                         }
                         elementCount++;
                     };
@@ -132,7 +129,7 @@ namespace ApexaContractorAPI.Repository.Implementation
                         var chain = graph.GetContractingChainList;
                         if (chain.Count > 1)
                         {  
-                            value = ContractorChain(chain);
+                            value = ShortestPath(chain);
                         }
                     }
                 }
@@ -147,7 +144,7 @@ namespace ApexaContractorAPI.Repository.Implementation
             return result;        
         }
 
-        private string ContractorChain(HashSet<int> chain)
+        private string ShortestPath(HashSet<int> chain)
         {
             var value = "";
             var sortedSet = new SortedSet<string>();
