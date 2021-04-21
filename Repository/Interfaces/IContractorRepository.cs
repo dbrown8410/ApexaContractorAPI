@@ -11,5 +11,6 @@ namespace ApexaContractorAPI.Repository.Interfaces
         bool RemoveContract(int contractId);
         List<ContractorModel> GetContractorList();
         List<ContractsModel> GetContractsList();
+        ContractingChainModel GetShortestContractingChain(int contractorOneId, int contractorTwoId);
     }
 }

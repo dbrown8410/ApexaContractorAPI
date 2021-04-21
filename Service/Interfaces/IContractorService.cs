@@ -17,5 +17,6 @@ namespace ApexaContractorAPI.Service.Interfaces
         List<ContractorModel> GetContractorList();
         //Get a list of all contracts between contractors
         List<ContractsModel> GetContractsList();
+        ContractingChainModel GetShortestContractingChain(int contractorOneId, int contractorTwoId);
     }
 }

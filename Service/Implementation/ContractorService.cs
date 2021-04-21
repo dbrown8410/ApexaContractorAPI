@@ -43,5 +43,10 @@ namespace ApexaContractorAPI.Service.Implementation
         {
             return _contractorRepository.ValidateSaveContract(contractorOneID, contractorTwoID);
         }
+
+        public ContractingChainModel GetShortestContractingChain(int contractorOneId, int contractorTwoId)
+        {
+            return _contractorRepository.GetShortestContractingChain(contractorOneId, contractorTwoId); ;
+        }
     }
 }

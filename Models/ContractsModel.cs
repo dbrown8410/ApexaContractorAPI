@@ -9,5 +9,6 @@
         public string Contractor2Id { get; set; }
         public int ContractorTwoId { get; set; }
         public string ContractorTwoName { get; set; }
+        public string Chain { get; set; }
     }
 }

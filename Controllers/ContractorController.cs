@@ -40,7 +40,13 @@ namespace ApexaContractorAPI.Controllers
         {
             return _contractorService.GetContractsList();
         }
-        
+
+        [HttpGet("shortestchain/{id1}/{id2}")]
+        public ContractingChainModel GetShortestContractingChain(int id1, int id2)
+        {
+            return _contractorService.GetShortestContractingChain(id1, id2);
+        }
+
         [HttpGet("contractorlist")]
         public List<ContractorModel> GetContractors()
         {
